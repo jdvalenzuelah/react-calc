@@ -1,0 +1,12 @@
+.button {
+    width: 100px;
+    height: 100px;
+}
+
+.operation {
+    background-color: orange;
+}
+
+.number {
+    background-color: grey;
+}

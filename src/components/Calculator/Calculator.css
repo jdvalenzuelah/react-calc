@@ -1,0 +1,6 @@
+.calculator {
+    background-color: green;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 400px;
+}
