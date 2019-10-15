@@ -1,7 +1,10 @@
-/* eslint-disable no-eval */
 /* eslint-disable react/jsx-no-bind */
 import React from 'react';
 import CalcButton from 'components/CalcButton/CalcButton';
+import {
+  sum, sub, mul, mod,
+} from 'utils/operations';
+
 import './Calculator.css';
 
 class Calculator extends React.Component {
@@ -53,7 +56,18 @@ class Calculator extends React.Component {
 
   performOperation() {
     const { memory, displayValue, operation } = this.state;
-    return global.eval(`${memory}${operation}${displayValue}`);
+    switch (operation) {
+      case '+':
+        return sum(+memory, +displayValue);
+      case '-':
+        return sub(+memory, +displayValue);
+      case '*':
+        return mul(+memory, +displayValue);
+      case '%':
+        return mod(+memory, +displayValue);
+      default:
+        return 'Error';
+    }
   }
 
   render() {
