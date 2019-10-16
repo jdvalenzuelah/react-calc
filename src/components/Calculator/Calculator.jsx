@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
 import React from 'react';
 import CalcButton from 'components/CalcButton/CalcButton';
 import {
@@ -18,7 +17,7 @@ class Calculator extends React.Component {
     };
   }
 
-  numberHook(number) {
+  numberHook = (number) => {
     let { displayValue } = this.state;
     const { clean } = this.state;
     if (displayValue.length === 9) return;
@@ -29,7 +28,7 @@ class Calculator extends React.Component {
     });
   }
 
-  operationHook(op) {
+  operationHook = (op) => {
     if (op === 'AC') {
       this.setState({ displayValue: '', memory: null, operation: null });
       return;
@@ -75,31 +74,31 @@ class Calculator extends React.Component {
     return (
       <div className="calculator">
         <div className="display">
-          <h4>
+          <h4 data-testid="display">
             {displayValue}
           </h4>
         </div>
         <div className="calculator-pad">
-          <CalcButton label="AC" hook={this.operationHook.bind(this)} type="operation-helper" />
-          <CalcButton label="+/-" hook={this.operationHook.bind(this)} type="operation-helper" disabled />
-          <CalcButton label="%" hook={this.operationHook.bind(this)} type="operation-helper" />
-          <CalcButton label="/" hook={this.operationHook.bind(this)} type="operation" disabled />
-          <CalcButton label={7} hook={this.numberHook.bind(this)} />
-          <CalcButton label={8} hook={this.numberHook.bind(this)} />
-          <CalcButton label={9} hook={this.numberHook.bind(this)} />
-          <CalcButton label="*" hook={this.operationHook.bind(this)} type="operation" />
-          <CalcButton label={4} hook={this.numberHook.bind(this)} />
-          <CalcButton label={5} hook={this.numberHook.bind(this)} />
-          <CalcButton label={6} hook={this.numberHook.bind(this)} />
-          <CalcButton label="-" hook={this.operationHook.bind(this)} type="operation" />
-          <CalcButton label={1} hook={this.numberHook.bind(this)} />
-          <CalcButton label={2} hook={this.numberHook.bind(this)} />
-          <CalcButton label={3} hook={this.numberHook.bind(this)} />
-          <CalcButton label="+" hook={this.operationHook.bind(this)} type="operation" />
-          <CalcButton label="" hook={this.numberHook.bind(this)} disabled />
-          <CalcButton label={0} hook={this.numberHook.bind(this)} />
-          <CalcButton label="" hook={this.numberHook.bind(this)} disabled />
-          <CalcButton label="=" hook={this.operationHook.bind(this)} type="operation" />
+          <CalcButton label="AC" hook={this.operationHook} type="operation-helper" />
+          <CalcButton label="+/-" hook={this.operationHook} type="operation-helper" disabled />
+          <CalcButton label="%" hook={this.operationHook} type="operation-helper" />
+          <CalcButton label="/" hook={this.operationHook} type="operation" disabled />
+          <CalcButton label="7" hook={this.numberHook} />
+          <CalcButton label="8" hook={this.numberHook} />
+          <CalcButton label="9" hook={this.numberHook} />
+          <CalcButton label="*" hook={this.operationHook} type="operation" />
+          <CalcButton label="4" hook={this.numberHook} />
+          <CalcButton label="5" hook={this.numberHook} />
+          <CalcButton label="6" hook={this.numberHook} />
+          <CalcButton label="-" hook={this.operationHook} type="operation" />
+          <CalcButton label="1" hook={this.numberHook} />
+          <CalcButton label="2" hook={this.numberHook} />
+          <CalcButton label="3" hook={this.numberHook} />
+          <CalcButton label="+" hook={this.operationHook} type="operation" />
+          <CalcButton label="" hook={this.numberHook} disabled />
+          <CalcButton label="0" hook={this.numberHook} />
+          <CalcButton label="" hook={this.numberHook} disabled />
+          <CalcButton label="=" hook={this.operationHook} type="operation" />
         </div>
       </div>
     );

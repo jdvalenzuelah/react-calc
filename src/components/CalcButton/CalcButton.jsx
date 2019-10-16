@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-//import './CalcButton.css';
+import './CalcButton.css';
 
 const CalcButton = (props) => {
   const { label, type, disabled } = props;
@@ -9,7 +9,7 @@ const CalcButton = (props) => {
     props.hook(e.target.attributes.name.value);
   };
   return (
-    <button className={classes} name={label} onClick={handler.bind(this)} disabled={disabled} type="button">
+    <button className={classes} name={label} onClick={handler} disabled={disabled} type="button">
       {label}
     </button>
   );
